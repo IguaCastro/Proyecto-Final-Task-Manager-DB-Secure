@@ -8,7 +8,7 @@ public class DBConnection {
     private static final String user = "root";
     private static final String password = "";
 
-    public static Connection getConnection(){
+    public static Connection getConnection(){ 
         try{
             Connection conn = DriverManager.getConnection(url, user, password);
             return conn;
@@ -18,3 +18,5 @@ public class DBConnection {
         }
     }
 }
+
+//El pimer getConnection es el nombre del metodo, el segundo es el nombre del metodo de DiverManager. 
