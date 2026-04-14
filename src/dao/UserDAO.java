@@ -19,7 +19,7 @@ public class UserDAO {
         } 
     }
     public User searchUserName (String username){
-        String sql = "select * from users where = ?";
+        String sql = "select * from users where username = ?";
         try {
             Connection conn = DBConnection.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -28,10 +28,12 @@ public class UserDAO {
             if (rs.next()){
                 User user = new User();
                 user.setId(rs.getInt("id"));
-                user.setPassword(rs.);
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                return user;
             }
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("Error " + e.getMessage());
         }
         return null;
     }
