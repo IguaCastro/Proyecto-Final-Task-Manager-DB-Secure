@@ -36,6 +36,22 @@ public class UserDAO {
             System.out.println("Error " + e.getMessage());
         }
         return null;
+     }
+     public boolean userExists(String username){
+        String sql = "select count(*) from users where username = ?";
+        try {
+            Connection conn = DBConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1)>0;
+            }
+        } catch (Exception e) {
+            System.out.println("Error" + e.getMessage());
+        }
+        return false;
+     }
     }
 
-}
+
