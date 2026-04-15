@@ -2,6 +2,7 @@ package ui;
 import java.util.Scanner;
 import dao.TaskDAO;
 import dao.UserDAO;
+import model.User;
 
 public class MenuLogic extends Menu {
     MenuLogic(int option){
@@ -13,13 +14,20 @@ public class MenuLogic extends Menu {
     static int op;
     static boolean isRegistered;
     static String username;
+    static String password;
 
     public static void ShowMenu(){
         // System.out.println("Ingrese su ID para iniciar sesión:");
         System.out.println("Ingresa tu nombre de usuario: ");
         username = rd.nextLine();
+        System.out.println("Ingresa tu contraseña: ");
+        password = rd.nextLine();
 
-        userDAO.userExists(username);
+        User user1 = new User();
+        user1.setUsername(username);
+        user1.setPassword(password);        
+
+        userDAO.register(user1);
         
         // if(){
         //     userDAO.registerUser();
