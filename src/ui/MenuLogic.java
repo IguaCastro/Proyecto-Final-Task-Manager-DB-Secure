@@ -17,21 +17,16 @@ public class MenuLogic extends Menu {
     static String password;
 
     public static void ShowMenu(){
-        // System.out.println("Ingrese su ID para iniciar sesión:");
-        System.out.println("Ingresa tu nombre de usuario: ");
-        username = rd.nextLine();
-        System.out.println("Ingresa tu contraseña: ");
-        password = rd.nextLine();
 
-        User user1 = new User();
-        user1.setUsername(username);
-        user1.setPassword(password);        
+        System.out.println("Ya esta registrado? (1 .yes, 0. no)");
+        op = rd.nextInt();
 
-        userDAO.register(user1);
-        
-        // if(){
-        //     userDAO.registerUser();
-        // }
+        if(op == 1){
+            //menu de inicio de sesion   
+        }
+        else if(op == 0){
+            MenuRegisterUser.InsertUser();
+        }
 
         System.out.println("""
             B I E N V E N I D O  A L  T A S K  M A N A G E R
