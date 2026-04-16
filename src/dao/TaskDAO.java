@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class TaskDAO {
-    Menu menu = new Menu();
 
     public void newTask(Task task){ //Para añadir tareas a la base de datos
         Connection conn = DBConnection.getConnection();
